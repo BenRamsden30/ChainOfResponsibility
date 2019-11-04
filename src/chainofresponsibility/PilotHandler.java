@@ -9,15 +9,15 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class FlightControlHandler 
+public class PilotHandler 
 {
-    private int clearanceLevel = 6;
-    public FlightControlHandler(int clearance) 
+    private int clearanceLevel = 5;
+    public PilotHandler(int clearance) 
     {
         int C = clearance;
     }
     
-    public boolean FlightControlCheck(int C)
+    public boolean PilotCheck(int C)
     {
         return C >= clearanceLevel;
     }

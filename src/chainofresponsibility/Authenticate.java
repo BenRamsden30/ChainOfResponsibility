@@ -39,8 +39,8 @@ public class Authenticate
                 switch (request) {
                     case "GENERAL STAFF":
                         {
-                            GeneralStaffHandler test = new GeneralStaffHandler(clearance);
-                            if (test.GeneralStaffCheck(clearance) == true)
+                            GeneralStaffHandler testGeneralStaff = new GeneralStaffHandler(clearance);
+                            if (testGeneralStaff.GeneralStaffCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -56,8 +56,8 @@ public class Authenticate
                         }
                     case "CLEANER":
                         {
-                            CleanerHandler test = new CleanerHandler(clearance);
-                            if (test.CleanerCheck(clearance) == true)
+                            CleanerHandler testCleaner = new CleanerHandler(clearance);
+                            if (testCleaner.CleanerCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -73,8 +73,8 @@ public class Authenticate
                         }
                     case "BOOKING STAFF":
                         {
-                            BookingStaffHandler test = new BookingStaffHandler(clearance);
-                            if (test.BookingStaffCheck(clearance) == true)
+                            BookingStaffHandler testBookingStaff = new BookingStaffHandler(clearance);
+                            if (testBookingStaff.BookingStaffCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -90,8 +90,8 @@ public class Authenticate
                         }
                     case "FLIGHT ATTENDANT":
                         {
-                            FlightAttendantHandler test = new FlightAttendantHandler(clearance);
-                            if (test.FlightAttendantCheck(clearance) == true)
+                            FlightAttendantHandler testFlightAttendant = new FlightAttendantHandler(clearance);
+                            if (testFlightAttendant.FlightAttendantCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -107,8 +107,8 @@ public class Authenticate
                         }
                     case "PILOT":
                         {
-                            PilotsHandler test = new PilotsHandler(clearance);
-                            if (test.PilotsCheck(clearance) == true)
+                            PilotHandler testPilot = new PilotHandler(clearance);
+                            if (testPilot.PilotCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -124,8 +124,8 @@ public class Authenticate
                         }
                     case "FLIGHT CONTROL":
                         {
-                            FlightControlHandler test = new FlightControlHandler(clearance);
-                            if (test.FlightControlCheck(clearance) == true)
+                            FlightControlHandler testFlightControl = new FlightControlHandler(clearance);
+                            if (testFlightControl.FlightControlCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
@@ -141,8 +141,8 @@ public class Authenticate
                         }
                     case "MANAGMENT":
                         {
-                            ManagmentHandler test = new ManagmentHandler(clearance);
-                            if (test.ManagmentCheck(clearance) == true)
+                            ManagmentHandler testManagment = new ManagmentHandler(clearance);
+                            if (testManagment.ManagmentCheck(clearance) == true)
                             {
                                 approved = true;
                                 System.out.println("Passing to next section.");
