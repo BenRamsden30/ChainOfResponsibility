@@ -19,11 +19,6 @@ public class FlightAttendantHandler
     
     public boolean FlightAttendantCheck(int C)
     {
-        if (C >= clearanceLevel)
-        {
-            clearanceLevel = Incriment.Incrimented(C);
-            return true;
-        }
-        return false;
+        return C >= clearanceLevel;
     }
 }

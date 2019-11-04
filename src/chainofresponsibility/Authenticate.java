@@ -25,8 +25,10 @@ public class Authenticate
         scanner.nextLine();
 //        System.out.println("What is your clearance level?");
 //        clearance = scanner.nextInt();
+        ClearanceHandler test = new ClearanceHandler();
 
-        
+        if (test.ClearanceCheck(clearance) == true)
+        {
         while (request.equals("EXIT") == false)
         {
             while (approved == false)
@@ -162,6 +164,11 @@ public class Authenticate
             request = scanner.nextLine().toUpperCase();
             approved = false;
             }
+        }
+        }
+        else
+        {
+            System.out.println("Error - No such clearance. The Program mwill now terminate.");
         }
     }
 }
