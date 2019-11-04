@@ -20,22 +20,18 @@ public class Authenticate
     public Authenticate()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What level of request would you like to make?");
-        request = scanner.nextLine().toUpperCase();
-        scanner.nextLine();
-//        System.out.println("What is your clearance level?");
-//        clearance = scanner.nextInt();
         ClearanceHandler test = new ClearanceHandler();
-
+        System.out.println("What is your clearance level?");
+        clearance = scanner.nextInt();
+        request = "";
         if (test.ClearanceCheck(clearance) == true)
         {
         while (request.equals("EXIT") == false)
         {
             while (approved == false)
             {
-                System.out.println("What is your clearance level?");
-                clearance = scanner.nextInt();
-                
+                System.out.println("What level of request would you like to make?");
+                request = scanner.nextLine().toUpperCase();
                 switch (request) {
                     case "GENERAL STAFF":
                         {
@@ -158,12 +154,11 @@ public class Authenticate
                         }
                     default:
                         System.out.println("Error - not an option, the program will now terminate.");
+                        approved = true;
                         break;
                 }
-            System.out.println("What level of request would you like to make?");
-            request = scanner.nextLine().toUpperCase();
-            approved = false;
             }
+            approved = false;
         }
         }
         else
