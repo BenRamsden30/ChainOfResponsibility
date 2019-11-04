@@ -44,12 +44,12 @@ public class CleanerHandlerTest {
     public void testCleanerCheck() {
         System.out.println("CleanerCheck");
         int C = 0;
-        CleanerHandler instance = null;
+        CleanerHandler instance = new CleanerHandler(C);
         boolean expResult = false;
         boolean result = instance.CleanerCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

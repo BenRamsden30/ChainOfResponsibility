@@ -11,7 +11,7 @@ package chainofresponsibility;
  */
 public class BookingStaffHandler 
 {
-    private int clearanceLevel = 3;
+    private final int clearanceLevel = 3;
     public BookingStaffHandler(int clearance) 
     {
         int C = clearance;
@@ -19,6 +19,6 @@ public class BookingStaffHandler
     
     public boolean BookingStaffCheck(int C)
     {
-        return C >= clearanceLevel;
+        return (C >= clearanceLevel);
     }
 }

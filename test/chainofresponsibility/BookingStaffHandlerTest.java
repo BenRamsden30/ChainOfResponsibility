@@ -44,12 +44,12 @@ public class BookingStaffHandlerTest {
     public void testBookingStaffCheck() {
         System.out.println("BookingStaffCheck");
         int C = 0;
-        BookingStaffHandler instance = null;
+        BookingStaffHandler instance = new BookingStaffHandler(C);
         boolean expResult = false;
         boolean result = instance.BookingStaffCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
