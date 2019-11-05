@@ -14,7 +14,7 @@ public class PilotHandler
     private int clearanceLevel = 5;
 
     /**
-     *
+     *Handler constructor
      * @param clearance
      */
     public PilotHandler(int clearance) 
@@ -23,7 +23,8 @@ public class PilotHandler
     }
     
     /**
-     *
+     *This checks if the user has the clearance for something requiring the
+     * clearance of a pilot.
      * @param C
      * @return
      */

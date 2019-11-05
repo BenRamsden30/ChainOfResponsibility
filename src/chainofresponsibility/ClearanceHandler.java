@@ -13,7 +13,7 @@ public class ClearanceHandler
 {
 
     /**
-     *
+     *Clearance constructor.
      */
     public ClearanceHandler()
     {
@@ -21,7 +21,7 @@ public class ClearanceHandler
     }
     
     /**
-     *
+     *Clearance checks it is within the clearance levels of the system.
      * @param clearance
      * @return
      */

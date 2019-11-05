@@ -14,7 +14,7 @@ public class GeneralStaffHandler
     private int clearanceLevel = 1;
 
     /**
-     *
+     *General staff constructor.
      * @param clearance
      */
     public GeneralStaffHandler(int clearance) 
@@ -23,7 +23,8 @@ public class GeneralStaffHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a General employee.
      * @param C
      * @return
      */

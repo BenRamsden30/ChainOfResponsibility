@@ -14,7 +14,7 @@ public class CleanerHandler
     private int clearanceLevel = 2;
 
     /**
-     *
+     *cLEANER CONSTRUCTOR.
      * @param clearance
      */
     public CleanerHandler(int clearance) 
@@ -23,7 +23,8 @@ public class CleanerHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a CLEANER.
      * @param C
      * @return
      */

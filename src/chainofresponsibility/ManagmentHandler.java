@@ -14,7 +14,7 @@ public class ManagmentHandler
     private int clearanceLevel = 7;
 
     /**
-     *
+     *Managment constructor
      * @param clearance
      */
     public ManagmentHandler(int clearance) 
@@ -23,7 +23,8 @@ public class ManagmentHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a manager.
      * @param C
      * @return
      */

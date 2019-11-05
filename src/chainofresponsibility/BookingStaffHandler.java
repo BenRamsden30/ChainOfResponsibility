@@ -14,7 +14,7 @@ public class BookingStaffHandler
     private final int clearanceLevel = 3;
 
     /**
-     *
+     *bOOKING STAFF CONSTRUCTOR.
      * @param clearance
      */
     public BookingStaffHandler(int clearance) 
@@ -23,7 +23,8 @@ public class BookingStaffHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a BOOKING STAFF EMPLOYEE.
      * @param C
      * @return
      */

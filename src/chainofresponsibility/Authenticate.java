@@ -18,7 +18,7 @@ public class Authenticate
     private boolean approved = false;
     
     /**
-     *This is uses to replicate user input.
+     *This is uses to replicate user input. THis would be replaced with the rest of the larger program.
      */
     public Authenticate()
     {

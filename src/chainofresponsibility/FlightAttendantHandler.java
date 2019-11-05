@@ -14,7 +14,7 @@ public class FlightAttendantHandler
     private int clearanceLevel = 4;
 
     /**
-     *
+     *Flight attendant constructor.
      * @param clearance
      */
     public FlightAttendantHandler(int clearance) 
@@ -23,7 +23,8 @@ public class FlightAttendantHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a flight attendant.
      * @param C
      * @return
      */

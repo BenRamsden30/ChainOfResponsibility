@@ -14,7 +14,7 @@ public class FlightControlHandler
     private int clearanceLevel = 6;
 
     /**
-     *
+     *Flight control constructor.
      * @param clearance
      */
     public FlightControlHandler(int clearance) 
@@ -23,7 +23,8 @@ public class FlightControlHandler
     }
     
     /**
-     *
+     **This checks if the user has the clearance for something requiring the
+     * clearance of a flight control operator.
      * @param C
      * @return
      */
