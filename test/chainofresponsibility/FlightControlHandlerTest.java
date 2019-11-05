@@ -39,17 +39,49 @@ public class FlightControlHandlerTest {
 
     /**
      * Test of FlightControlCheck method, of class FlightControlHandler.
+     * When the clearance is lower than required.
      */
     @Test
     public void testFlightControlCheck() {
         System.out.println("FlightControlCheck");
         int C = 0;
-        FlightControlHandler instance = null;
+        FlightControlHandler instance = new FlightControlHandler(C);
         boolean expResult = false;
         boolean result = instance.FlightControlCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
+    /**
+     * Test of FlightControlCheck method, of class FlightControlHandler.
+     * Check when the clearance is equal to the expected.
+     */
+    @Test
+    public void testFlightControlCheck2() {
+        System.out.println("FlightControlCheck");
+        int C = 6;
+        FlightControlHandler instance = new FlightControlHandler(C);
+        boolean expResult = true;
+        boolean result = instance.FlightControlCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of FlightControlCheck method, of class FlightControlHandler.
+     * Test when the clearance is greater than that required.
+     */
+    @Test
+    public void testFlightControlCheck3() {
+        System.out.println("FlightControlCheck");
+        int C = 10;
+        FlightControlHandler instance = new FlightControlHandler(C);
+        boolean expResult = true;
+        boolean result = instance.FlightControlCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

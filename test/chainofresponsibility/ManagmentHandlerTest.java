@@ -39,17 +39,49 @@ public class ManagmentHandlerTest {
 
     /**
      * Test of ManagmentCheck method, of class ManagmentHandler.
+     * test when below the required clearance.
      */
     @Test
     public void testManagmentCheck() {
         System.out.println("ManagmentCheck");
         int C = 0;
-        ManagmentHandler instance = null;
+        ManagmentHandler instance = new ManagmentHandler(C);
         boolean expResult = false;
         boolean result = instance.ManagmentCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
+    /**
+     * Test of ManagmentCheck method, of class ManagmentHandler.
+     * Test of when the clearnce is equal to the required.
+     */
+    @Test
+    public void testManagmentCheck2() {
+        System.out.println("ManagmentCheck");
+        int C = 7;
+        ManagmentHandler instance = new ManagmentHandler(C);
+        boolean expResult = true;
+        boolean result = instance.ManagmentCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of ManagmentCheck method, of class ManagmentHandler.
+     * Test of when the clearnce is above the required.
+     */
+    @Test
+    public void testManagmentCheck3() {
+        System.out.println("ManagmentCheck");
+        int C = 10;
+        ManagmentHandler instance = new ManagmentHandler(C);
+        boolean expResult = true;
+        boolean result = instance.ManagmentCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

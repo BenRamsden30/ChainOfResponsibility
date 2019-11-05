@@ -39,6 +39,7 @@ public class BookingStaffHandlerTest {
 
     /**
      * Test of BookingStaffCheck method, of class BookingStaffHandler.
+     * This is if the value is not equal to the expected.
      */
     @Test
     public void testBookingStaffCheck() {
@@ -46,6 +47,38 @@ public class BookingStaffHandlerTest {
         int C = 0;
         BookingStaffHandler instance = new BookingStaffHandler(C);
         boolean expResult = false;
+        boolean result = instance.BookingStaffCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of BookingStaffCheck method, of class BookingStaffHandler.
+     * This is if the value is equal to the expected.
+     */
+    @Test
+    public void testBookingStaffCheck2() {
+        System.out.println("BookingStaffCheck");
+        int C = 3;
+        BookingStaffHandler instance = new BookingStaffHandler(C);
+        boolean expResult = true;
+        boolean result = instance.BookingStaffCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of BookingStaffCheck method, of class BookingStaffHandler.
+     * This is if the value is larger than the expected value.
+     */
+    @Test
+    public void testBookingStaffCheck3() {
+        System.out.println("BookingStaffCheck");
+        int C = 7;
+        BookingStaffHandler instance = new BookingStaffHandler(C);
+        boolean expResult = true;
         boolean result = instance.BookingStaffCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

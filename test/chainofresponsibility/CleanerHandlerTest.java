@@ -39,6 +39,7 @@ public class CleanerHandlerTest {
 
     /**
      * Test of CleanerCheck method, of class CleanerHandler.
+     * Test of when clearance is below that which is required.
      */
     @Test
     public void testCleanerCheck() {
@@ -46,6 +47,37 @@ public class CleanerHandlerTest {
         int C = 0;
         CleanerHandler instance = new CleanerHandler(C);
         boolean expResult = false;
+        boolean result = instance.CleanerCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    /**
+     * Test of CleanerCheck method, of class CleanerHandler.
+     * Test when the clearance level is the same as that required.
+     */
+    @Test
+    public void testCleanerCheck2() {
+        System.out.println("CleanerCheck");
+        int C = 2;
+        CleanerHandler instance = new CleanerHandler(C);
+        boolean expResult = true;
+        boolean result = instance.CleanerCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of CleanerCheck method, of class CleanerHandler.
+     * tests when a value greater than that required is passed.
+     */
+    @Test
+    public void testCleanerCheck3() {
+        System.out.println("CleanerCheck");
+        int C = 10;
+        CleanerHandler instance = new CleanerHandler(C);
+        boolean expResult = true;
         boolean result = instance.CleanerCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

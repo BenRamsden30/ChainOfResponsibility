@@ -39,17 +39,49 @@ public class FlightAttendantHandlerTest {
 
     /**
      * Test of FlightAttendantCheck method, of class FlightAttendantHandler.
+     * Tests the response when the value is below that which is required.
      */
     @Test
     public void testFlightAttendantCheck() {
         System.out.println("FlightAttendantCheck");
         int C = 0;
-        FlightAttendantHandler instance = null;
+        FlightAttendantHandler instance = new FlightAttendantHandler(C);
         boolean expResult = false;
         boolean result = instance.FlightAttendantCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
+    /**
+     * Test of FlightAttendantCheck method, of class FlightAttendantHandler.
+     * Tests the response when the value is below that which is required.
+     */
+    @Test
+    public void testFlightAttendantCheck2() {
+        System.out.println("FlightAttendantCheck");
+        int C = 4;
+        FlightAttendantHandler instance = new FlightAttendantHandler(C);
+        boolean expResult = true;
+        boolean result = instance.FlightAttendantCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of FlightAttendantCheck method, of class FlightAttendantHandler.
+     * Tests the response when the value is below that which is required.
+     */
+    @Test
+    public void testFlightAttendantCheck3() {
+        System.out.println("FlightAttendantCheck");
+        int C = 10;
+        FlightAttendantHandler instance = new FlightAttendantHandler(C);
+        boolean expResult = true;
+        boolean result = instance.FlightAttendantCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

@@ -39,17 +39,49 @@ public class GeneralStaffHandlerTest {
 
     /**
      * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * Test for when below the required clearance.
      */
     @Test
     public void testGeneralStaffCheck() {
         System.out.println("GeneralStaffCheck");
         int C = 0;
-        GeneralStaffHandler instance = null;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = false;
         boolean result = instance.GeneralStaffCheck(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
+    /**
+     * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * Equal to the required clearance.
+     */
+    @Test
+    public void testGeneralStaffCheck2() {
+        System.out.println("GeneralStaffCheck");
+        int C = 1;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
+        boolean expResult = true;
+        boolean result = instance.GeneralStaffCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * When the clearance is greater than that which is required.
+     */
+    @Test
+    public void testGeneralStaffCheck3() {
+        System.out.println("GeneralStaffCheck");
+        int C = 10;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
+        boolean expResult = true;
+        boolean result = instance.GeneralStaffCheck(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }
