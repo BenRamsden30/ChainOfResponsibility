@@ -1,0 +1,28 @@
+Driver Class - Handler - Authenticate
+Base Handlers:
+GeneralStaffHandler,
+CleanerHandler,
+BookingStaffHandler,
+FlightAttendantHandler,
+PilotHandler,
+FlightControlHandler,
+ManagmentHandler.
+
+
+This code is a start and small snippet of the greater program. It only focuses 
+on the chain of command design pattern which is being implemented to check
+clearance levels of the user depending on their request.
+
+It uses 7 different levels of user that can be checked. This can be easily 
+manipulated to fit more access levels and be added to with ease. The 
+authenticate class is meant to replicate user input and would not be designed 
+like this in the greater program.
+
+To Run the program run it from the ChainOfResponsibility.java file and follow 
+the instructions that will be displayed in the command line at the bottom of 
+the screen. Appropriate error messages and prompts will be displayed with
+explanations when the code would be passing to another section of the program.
+
+Each of the base handlers contains methods to check if the user has the correct 
+clearance to carry out the action that they desire. The authenticate class is 
+there to replicate the user input and is a place holder for the rest of the system.

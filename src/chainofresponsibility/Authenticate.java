@@ -17,6 +17,9 @@ public class Authenticate
     private int clearance;
     private boolean approved = false;
     
+    /**
+     *This is uses to replicate user input.
+     */
     public Authenticate()
     {
         Scanner scanner = new Scanner(System.in);

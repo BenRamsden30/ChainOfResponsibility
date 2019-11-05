@@ -11,11 +11,20 @@ package chainofresponsibility;
  */
 public class ClearanceHandler 
 {
+
+    /**
+     *
+     */
     public ClearanceHandler()
     {
         
     }
     
+    /**
+     *
+     * @param clearance
+     * @return
+     */
     public boolean ClearanceCheck(int clearance)
     {
         int C = clearance;

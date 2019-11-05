@@ -12,11 +12,21 @@ package chainofresponsibility;
 public class CleanerHandler 
 {
     private int clearanceLevel = 2;
+
+    /**
+     *
+     * @param clearance
+     */
     public CleanerHandler(int clearance) 
     {
         int C = clearance;
     }
     
+    /**
+     *
+     * @param C
+     * @return
+     */
     public boolean CleanerCheck(int C)
     {
         return C >= clearanceLevel;

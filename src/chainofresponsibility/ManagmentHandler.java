@@ -12,11 +12,21 @@ package chainofresponsibility;
 public class ManagmentHandler 
 {
     private int clearanceLevel = 7;
+
+    /**
+     *
+     * @param clearance
+     */
     public ManagmentHandler(int clearance) 
     {
         int C = clearance;
     }
     
+    /**
+     *
+     * @param C
+     * @return
+     */
     public boolean ManagmentCheck(int C)
     {
         return C >= clearanceLevel;

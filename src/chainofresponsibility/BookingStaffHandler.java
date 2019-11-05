@@ -12,11 +12,21 @@ package chainofresponsibility;
 public class BookingStaffHandler 
 {
     private final int clearanceLevel = 3;
+
+    /**
+     *
+     * @param clearance
+     */
     public BookingStaffHandler(int clearance) 
     {
         int C = clearance;
     }
     
+    /**
+     *
+     * @param C
+     * @return
+     */
     public boolean BookingStaffCheck(int C)
     {
         return (C >= clearanceLevel);

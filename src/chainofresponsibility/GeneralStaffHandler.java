@@ -12,11 +12,21 @@ package chainofresponsibility;
 public class GeneralStaffHandler 
 {
     private int clearanceLevel = 1;
+
+    /**
+     *
+     * @param clearance
+     */
     public GeneralStaffHandler(int clearance) 
     {
         int C = clearance;
     }
     
+    /**
+     *
+     * @param C
+     * @return
+     */
     public boolean GeneralStaffCheck(int C)
     {
         return C >= clearanceLevel;

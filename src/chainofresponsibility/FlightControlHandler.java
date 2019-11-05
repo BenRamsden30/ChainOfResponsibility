@@ -12,11 +12,21 @@ package chainofresponsibility;
 public class FlightControlHandler 
 {
     private int clearanceLevel = 6;
+
+    /**
+     *
+     * @param clearance
+     */
     public FlightControlHandler(int clearance) 
     {
         int C = clearance;
     }
     
+    /**
+     *
+     * @param C
+     * @return
+     */
     public boolean FlightControlCheck(int C)
     {
         return C >= clearanceLevel;
