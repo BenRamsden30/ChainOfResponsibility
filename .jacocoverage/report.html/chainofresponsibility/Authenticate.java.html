@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Authenticate.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ChainOfResponsibility&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">chainofresponsibility</a> &gt; <span class="el_source">Authenticate.java</span></div><h1>Authenticate.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chainofresponsibility;
+
+import java.util.*;
+
+/**
+ *
+ * @author v8036651
+ */
+public class Authenticate 
+{
+    private String request;
+    private int clearance;
+<span class="fc" id="L18">    private boolean approved = false;</span>
+    
+    /**
+     *This is uses to replicate user input. THis would be replaced with the rest of the larger program.
+     */
+    public Authenticate()
+<span class="fc" id="L24">    {</span>
+<span class="fc" id="L25">        Scanner scanner = new Scanner(System.in);</span>
+<span class="fc" id="L26">        ClearanceHandler test = new ClearanceHandler();</span>
+<span class="fc" id="L27">        System.out.println(&quot;What is your clearance level?&quot;);</span>
+<span class="nc" id="L28">        clearance = scanner.nextInt();</span>
+<span class="nc" id="L29">        request = &quot;&quot;;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (test.ClearanceCheck(clearance) == true)</span>
+        {
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        while (request.equals(&quot;EXIT&quot;) == false)</span>
+        {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            while (approved == false)</span>
+            {
+<span class="nc" id="L36">                System.out.println(&quot;What level of request would you like to make?&quot;);</span>
+<span class="nc" id="L37">                request = scanner.nextLine().toUpperCase();</span>
+<span class="nc bnc" id="L38" title="All 30 branches missed.">                switch (request) {</span>
+                    case &quot;GENERAL STAFF&quot;:
+                        {
+<span class="nc" id="L41">                            GeneralStaffHandler testGeneralStaff = new GeneralStaffHandler(clearance);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">                            if (testGeneralStaff.GeneralStaffCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L44">                                approved = true;</span>
+<span class="nc" id="L45">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L46">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L47">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L48">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L52">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L53">                                approved = false;</span>
+<span class="nc" id="L54">                            }       break;</span>
+                        }
+                    case &quot;CLEANER&quot;:
+                        {
+<span class="nc" id="L58">                            CleanerHandler testCleaner = new CleanerHandler(clearance);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                            if (testCleaner.CleanerCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L61">                                approved = true;</span>
+<span class="nc" id="L62">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L63">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L64">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L65">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L69">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L70">                                approved = false;</span>
+<span class="nc" id="L71">                            }       break;</span>
+                        }
+                    case &quot;BOOKING STAFF&quot;:
+                        {
+<span class="nc" id="L75">                            BookingStaffHandler testBookingStaff = new BookingStaffHandler(clearance);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">                            if (testBookingStaff.BookingStaffCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L78">                                approved = true;</span>
+<span class="nc" id="L79">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L80">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L81">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L82">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L86">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L87">                                approved = false;</span>
+<span class="nc" id="L88">                            }       break;</span>
+                        }
+                    case &quot;FLIGHT ATTENDANT&quot;:
+                        {
+<span class="nc" id="L92">                            FlightAttendantHandler testFlightAttendant = new FlightAttendantHandler(clearance);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                            if (testFlightAttendant.FlightAttendantCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L95">                                approved = true;</span>
+<span class="nc" id="L96">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L97">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L98">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L99">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L103">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L104">                                approved = false;</span>
+<span class="nc" id="L105">                            }       break;</span>
+                        }
+                    case &quot;PILOT&quot;:
+                        {
+<span class="nc" id="L109">                            PilotHandler testPilot = new PilotHandler(clearance);</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                            if (testPilot.PilotCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L112">                                approved = true;</span>
+<span class="nc" id="L113">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L114">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L115">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L116">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L120">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L121">                                approved = false;</span>
+<span class="nc" id="L122">                            }       break;</span>
+                        }
+                    case &quot;FLIGHT CONTROL&quot;:
+                        {
+<span class="nc" id="L126">                            FlightControlHandler testFlightControl = new FlightControlHandler(clearance);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">                            if (testFlightControl.FlightControlCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L129">                                approved = true;</span>
+<span class="nc" id="L130">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L131">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L132">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L133">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L137">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L138">                                approved = false;</span>
+<span class="nc" id="L139">                            }       break;</span>
+                        }
+                    case &quot;MANAGMENT&quot;:
+                        {
+<span class="nc" id="L143">                            ManagmentHandler testManagment = new ManagmentHandler(clearance);</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                            if (testManagment.ManagmentCheck(clearance) == true)</span>
+                            {
+<span class="nc" id="L146">                                approved = true;</span>
+<span class="nc" id="L147">                                System.out.println(&quot;Passing to next section.&quot;);</span>
+<span class="nc" id="L148">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L149">                                System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L150">                                System.out.println(&quot;&quot;);</span>
+                            }
+                            else
+                            {
+<span class="nc" id="L154">                                System.out.println(&quot;You do Not have the clearance for this.&quot;);</span>
+<span class="nc" id="L155">                                approved = false;</span>
+<span class="nc" id="L156">                            }       break;</span>
+                        }
+                    default:
+<span class="nc" id="L159">                        System.out.println(&quot;Error - not an option, the program will now terminate.&quot;);</span>
+<span class="nc" id="L160">                        approved = true;</span>
+<span class="nc" id="L161">                        break;</span>
+                }
+            }
+<span class="nc" id="L164">            approved = false;</span>
+        }
+        }
+        else
+        {
+<span class="nc" id="L169">            System.out.println(&quot;Error - No such clearance. The Program mwill now terminate.&quot;);</span>
+        }
+<span class="nc" id="L171">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

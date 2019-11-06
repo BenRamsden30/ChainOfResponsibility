@@ -38,12 +38,72 @@ public class ClearanceHandlerTest {
     }
 
     /**
-     * Test of ClearanceCheck method, of class ClearanceHandler.
+     * Test of ClearanceCheck method, when on lower boundary.
      */
     @Test
     public void testClearanceCheck() {
         System.out.println("ClearanceCheck");
         int clearance = 0;
+        ClearanceHandler instance = new ClearanceHandler();
+        boolean expResult = false;
+        boolean result = instance.ClearanceCheck(clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of ClearanceCheck method, when on upper boundary.
+     */
+    @Test
+    public void testClearanceCheck2() {
+        System.out.println("ClearanceCheck");
+        int clearance = 8;
+        ClearanceHandler instance = new ClearanceHandler();
+        boolean expResult = false;
+        boolean result = instance.ClearanceCheck(clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of ClearanceCheck method, when in boundaries.
+     */
+    @Test
+    public void testClearanceCheck3() {
+        System.out.println("ClearanceCheck");
+        int clearance = 4;
+        ClearanceHandler instance = new ClearanceHandler();
+        boolean expResult = true;
+        boolean result = instance.ClearanceCheck(clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of ClearanceCheck method, when below lower boundary.
+     */
+    @Test
+    public void testClearanceCheck4() {
+        System.out.println("ClearanceCheck");
+        int clearance = -1;
+        ClearanceHandler instance = new ClearanceHandler();
+        boolean expResult = false;
+        boolean result = instance.ClearanceCheck(clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of ClearanceCheck method, when above upper boundary.
+     */
+    @Test
+    public void testClearanceCheck5() {
+        System.out.println("ClearanceCheck");
+        int clearance = 10;
         ClearanceHandler instance = new ClearanceHandler();
         boolean expResult = false;
         boolean result = instance.ClearanceCheck(clearance);
