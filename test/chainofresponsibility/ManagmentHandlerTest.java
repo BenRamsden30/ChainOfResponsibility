@@ -38,14 +38,14 @@ public class ManagmentHandlerTest {
     }
 
     /**
-     * Test of ManagmentCheck method, of class ManagmentHandler.
+     * Test of ManagmentCheck method, of class ManagementHandler.
      * test when below the required clearance.
      */
     @Test
     public void testManagmentCheck() {
         System.out.println("ManagmentCheck");
         int C = 0;
-        ManagmentHandler instance = new ManagmentHandler(C);
+        ManagementHandler instance = new ManagementHandler(C);
         boolean expResult = false;
         boolean result = instance.ManagmentCheck(C);
         assertEquals(expResult, result);
@@ -54,14 +54,14 @@ public class ManagmentHandlerTest {
     }
     
     /**
-     * Test of ManagmentCheck method, of class ManagmentHandler.
+     * Test of ManagmentCheck method, of class ManagementHandler.
      * Test of when the clearnce is equal to the required.
      */
     @Test
     public void testManagmentCheck2() {
         System.out.println("ManagmentCheck");
         int C = 7;
-        ManagmentHandler instance = new ManagmentHandler(C);
+        ManagementHandler instance = new ManagementHandler(C);
         boolean expResult = true;
         boolean result = instance.ManagmentCheck(C);
         assertEquals(expResult, result);
@@ -70,14 +70,14 @@ public class ManagmentHandlerTest {
     }
     
     /**
-     * Test of ManagmentCheck method, of class ManagmentHandler.
+     * Test of ManagmentCheck method, of class ManagementHandler.
      * Test of when the clearnce is above the required.
      */
     @Test
     public void testManagmentCheck3() {
         System.out.println("ManagmentCheck");
         int C = 10;
-        ManagmentHandler instance = new ManagmentHandler(C);
+        ManagementHandler instance = new ManagementHandler(C);
         boolean expResult = true;
         boolean result = instance.ManagmentCheck(C);
         assertEquals(expResult, result);

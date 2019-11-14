@@ -56,7 +56,7 @@ public class AuthenticationHandler
         /**
          * Sets up a managment handler to be called later.
          */
-        Chainable M = new ManagmentHandler(clearance);
+        Chainable M = new ManagementHandler(clearance);
         
         
         
@@ -108,7 +108,7 @@ public class AuthenticationHandler
         
         
         /**
-         * Passes forward to managment as in this scenario those in between are busy.
+         * Passes forward to management as in this scenario those in between are busy.
          */
         M = C.setNext(M, clearance);
         if(M.Check(clearance))
