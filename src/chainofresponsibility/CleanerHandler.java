@@ -11,7 +11,7 @@ package chainofresponsibility;
  */
 public class CleanerHandler extends Chainable
 {
-    private int clearanceLevel = 2;
+    private final int clearanceLevel = 2;
     private final Chainable defaultNext = new BookingStaffHandler(clearanceLevel);
 
     /**
@@ -26,7 +26,7 @@ public class CleanerHandler extends Chainable
     
     /**
      **This checks if the user has the clearance for something requiring the
-     * clearance of a CLEANER.
+     * clearance of a cleaner.
      * @param C
      * @return
      */

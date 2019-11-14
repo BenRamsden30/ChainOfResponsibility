@@ -25,7 +25,7 @@ public class BookingStaffHandler extends Chainable
     
     /**
      **This checks if the user has the clearance for something requiring the
-     * clearance of a BOOKING STAFF EMPLOYEE.
+     * clearance of a booking staff employee.
      * @param C
      * @return
      */

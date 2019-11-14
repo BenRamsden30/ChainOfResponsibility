@@ -11,11 +11,11 @@ package chainofresponsibility;
  */
 public class ManagementHandler extends Chainable
 {
-    private int clearanceLevel = 7;
+    private final int clearanceLevel = 7;
     private final Chainable defaultNext = null;
     
     /**
-     *Managment constructor
+     *Management constructor
      * @param clearance
      */
     public ManagementHandler(int clearance) 

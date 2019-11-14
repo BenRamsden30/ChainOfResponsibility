@@ -11,7 +11,7 @@ package chainofresponsibility;
  */
 public class FlightControlHandler extends Chainable
 {
-    private int clearanceLevel = 6;
+    private final int clearanceLevel = 6;
     private final Chainable defaultNext = new ManagementHandler(clearanceLevel);
 
     /**
@@ -39,7 +39,7 @@ public class FlightControlHandler extends Chainable
     
     
     /**
-     * Sets next in chain to the passed Chainable or defaults to Managmenthandler
+     * Sets next in chain to the passed Chainable or defaults to Managementhandler
      * @param next
      * @param clearance
      * @return 

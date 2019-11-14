@@ -54,7 +54,7 @@ public class AuthenticationHandler
          */
         Chainable FC = new FlightControlHandler(clearance);
         /**
-         * Sets up a managment handler to be called later.
+         * Sets up a management handler to be called later.
          */
         Chainable M = new ManagementHandler(clearance);
         

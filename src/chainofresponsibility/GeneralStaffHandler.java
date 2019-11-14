@@ -11,7 +11,7 @@ package chainofresponsibility;
  */
 public class GeneralStaffHandler extends Chainable
 {
-    private int clearanceLevel = 1;
+    private final int clearanceLevel = 1;
     private final Chainable defaultNext = new CleanerHandler(clearanceLevel);
 
     /**
@@ -26,7 +26,7 @@ public class GeneralStaffHandler extends Chainable
     
     /**
      **This checks if the user has the clearance for something requiring the
-     * clearance of a General employee.
+     * clearance of a General staff member.
      * @param C
      * @return
      */
@@ -39,7 +39,7 @@ public class GeneralStaffHandler extends Chainable
     
     
     /**
-     * Sets next in chain as the passed chainable object or defaults to the cleaner handler.
+     * Sets next in chain as the passed Chainable object or defaults to the cleaner handler.
      * @param next
      * @param clearance
      * @return 

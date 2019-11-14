@@ -26,6 +26,7 @@ public class Chainable
     
     /**
      * Sets next in chain which will be overwritten by the handlers.
+     * @param next
      * @param clearance
      * @return 
      */
@@ -34,6 +35,11 @@ public class Chainable
         return new Chainable(clearance);
     }
     
+    /**
+     * Sets the check method for the super class, this is overwritten by the handlers based on which is called.
+     * @param C
+     * @return 
+     */
     public boolean Check(int C)
     {
         return C>0;
