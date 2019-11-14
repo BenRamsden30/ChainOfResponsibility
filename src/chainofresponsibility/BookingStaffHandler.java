@@ -32,6 +32,7 @@ public class BookingStaffHandler extends Chainable
     @Override
     public boolean Check(int C)
     {
+        System.out.println("Hello");
         return (C <= clearanceLevel);
     }
     

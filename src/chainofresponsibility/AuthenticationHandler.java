@@ -29,6 +29,11 @@ public class AuthenticationHandler
         test.ClearanceCheck(clearance);
         
         
+        
+        /**
+         * A is the Cahinable that deals with all of the handlers and calls each one up.
+         */
+        Chainable A = new Chainable(clearance);
         /**
          * Sets up a general staff handler to be called later.
          */
@@ -59,65 +64,81 @@ public class AuthenticationHandler
         Chainable M = new ManagementHandler(clearance);
         
         
-        
+        A = G;
         /**
          * Start of code running of an example.
          */
-        if (G.Check(clearance))
+        if (A.Check(clearance))
         {
             System.out.println(" General staff can handle.");
             System.exit(0);
         }
         else
         {
-            System.out.println("General Staff cannot handle this request.");
+            System.out.println("General Staff cannot handle this request or is currently unavalible..");
         }
         
         
         
+        A = A.setNext(B,clearance);
         /**
          * Cleaner Busy therefore pass past cleaner and run check with booking staff instead.
          */
-        B = G.setNext(B,clearance);
-        if (B.Check(clearance))
+        if (A.Check(clearance))
         {
             System.out.println("Booking staff will take this request.");
             System.exit(0);
         }
         else
         {
-            System.out.println("Booking Staff cannot handle this request.");
+            System.out.println("Booking Staff cannot handle this request or is currently unavalible..");
         }
         
         
         
+        A = A.setNext(C, clearance);
         /**
          * Pass backwards to cleaner handler
          */
-        C = B.setNext(C, clearance);
-        if (C.Check(clearance))
+        if (A.Check(clearance))
         {
-            System.out.println("Cleaner can handle this request.");
+            System.out.println("Cleaner can handle this request .");
             System.exit(0);
         }
         else
         {
-            System.out.println("The cleaner cannot handle this request. ");
+            System.out.println("The cleaner cannot handle this request or is currently unavalible.. ");
         }
         
         
+        /**
+         * Passes null as the Chainable therefore using the default next instead so passing to booking staff.
+         * Replicates if a a booking staff had opened up to check again.
+         */
+        A = A.setNext(null, clearance);
+        if (A.Check(clearance))
+        {
+            System.out.println("Booking staff will take this request.");
+            System.exit(0);
+        }
+        else
+        {
+            System.out.println("Booking Staff cannot handle this request or is currently unavalible.");
+        }
         
+        
+        A = A.setNext(M,clearance);
         /**
          * Passes forward to management as in this scenario those in between are busy.
          */
-        M = C.setNext(M, clearance);
-        if(M.Check(clearance))
+        if(A.Check(clearance))
         {
             System.out.println("Managment has taken the request.");
             System.exit(0);
         }
         else
         {
+            System.out.println("Managment cannot handle this request.");
             System.out.println("ERROR - Nobody can handle this request!");
             System.exit(0);
         }
