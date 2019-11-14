@@ -11,14 +11,15 @@ package chainofresponsibility;
  */
 public class Chainable 
 {
-    Chainable next;
+    private Chainable next;
+    private final int clearance;
     /**
-     * Chainable constructor to act as super class.
-     * @param clearance 
+     * Chainable constructor to act as super class. 
+     * @param C
      */
-    public Chainable(int clearance)
+    public Chainable(int C)
     {
-        next = new Chainable(clearance);
+        clearance = C;
     }
     
     
@@ -28,8 +29,13 @@ public class Chainable
      * @param clearance
      * @return 
      */
-    public Chainable setNext(int clearance)
+    public Chainable setNext(Chainable next,int clearance)
     {
         return new Chainable(clearance);
+    }
+    
+    public boolean Check(int C)
+    {
+        return C>0;
     }
 }

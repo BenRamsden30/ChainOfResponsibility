@@ -30,9 +30,10 @@ public class CleanerHandler extends Chainable
      * @param C
      * @return
      */
-    public boolean CleanerCheck(int C)
+    @Override
+    public boolean Check(int C)
     {
-        return C >= clearanceLevel;
+        return C <= clearanceLevel;
     }
     
     
@@ -43,6 +44,7 @@ public class CleanerHandler extends Chainable
      * @param clearance
      * @return 
      */
+    @Override
     public Chainable setNext(Chainable next, int clearance) 
     {
         if(next == null)

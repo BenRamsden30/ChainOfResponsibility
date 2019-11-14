@@ -30,9 +30,10 @@ public class FlightAttendantHandler extends Chainable
      * @param C
      * @return
      */
-    public boolean FlightAttendantCheck(int C)
+    @Override
+    public boolean Check(int C)
     {
-        return C >= clearanceLevel;
+        return C <= clearanceLevel;
     }
     
     
@@ -43,6 +44,7 @@ public class FlightAttendantHandler extends Chainable
      * @param clearance
      * @return 
      */
+    @Override
     public Chainable setNext(Chainable next, int clearance) 
     {
         if(next == null)
