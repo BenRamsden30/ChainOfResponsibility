@@ -9,16 +9,18 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class CleanerHandler 
+public class CleanerHandler extends Chainable
 {
     private int clearanceLevel = 2;
+    private final Chainable defaultNext = new BookingStaffHandler(clearanceLevel);
 
     /**
-     *cLEANER CONSTRUCTOR.
+     *Cleaner constructor.
      * @param clearance
      */
     public CleanerHandler(int clearance) 
     {
+        super(clearance);
         int C = clearance;
     }
     
@@ -31,5 +33,22 @@ public class CleanerHandler
     public boolean CleanerCheck(int C)
     {
         return C >= clearanceLevel;
+    }
+    
+    
+    
+    /**
+     * Sets next in chain based on default if passed a null or uses the passed hander to set next in chain.
+     * @param next
+     * @param clearance
+     * @return 
+     */
+    public Chainable setNext(Chainable next, int clearance) 
+    {
+        if(next == null)
+        {
+            return defaultNext;
+        }
+        return next;
     }
 }

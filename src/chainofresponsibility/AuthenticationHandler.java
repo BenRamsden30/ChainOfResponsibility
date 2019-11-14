@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author v8036651
  */
-public class Authenticate 
+public class AuthenticationHandler 
 {
     private String request;
     private int clearance;
@@ -20,7 +20,7 @@ public class Authenticate
     /**
      *This is uses to replicate user input. THis would be replaced with the rest of the larger program.
      */
-    public Authenticate()
+    public AuthenticationHandler()
     {
         Scanner scanner = new Scanner(System.in);
         ClearanceHandler test = new ClearanceHandler();

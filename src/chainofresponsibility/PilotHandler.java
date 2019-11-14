@@ -9,9 +9,10 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class PilotHandler 
+public class PilotHandler extends Chainable
 {
     private int clearanceLevel = 5;
+    private final Chainable defaultNext = new FlightControlHandler(clearanceLevel);
 
     /**
      *Handler constructor
@@ -19,6 +20,7 @@ public class PilotHandler
      */
     public PilotHandler(int clearance) 
     {
+        super(clearance);
         int C = clearance;
     }
     
@@ -31,5 +33,22 @@ public class PilotHandler
     public boolean PilotCheck(int C)
     {
         return C >= clearanceLevel;
+    }
+    
+    
+    
+    /**
+     * Sets default to flight control handler for if null is passed otherwise sets next in chain to next.
+     * @param next
+     * @param clearance
+     * @return 
+     */
+    public Chainable setNext(Chainable next, int clearance) 
+    {
+        if(next == null)
+        {
+            return defaultNext;
+        }
+        return next;
     }
 }
