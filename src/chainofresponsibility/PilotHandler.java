@@ -16,6 +16,7 @@ public class PilotHandler extends Chainable
      * This is set to public for use in testing to ensure it is the correct return value.
      */
     public final Chainable defaultNext = new FlightControlHandler(clearanceLevel);
+    private Chainable next;
 
     /**
      *Handler constructor
@@ -23,7 +24,7 @@ public class PilotHandler extends Chainable
      */
     public PilotHandler(int clearance) 
     {
-        super(clearance);
+        super();
         int C = clearance;
     }
     
@@ -36,7 +37,21 @@ public class PilotHandler extends Chainable
     @Override
     public boolean Check(int C)
     {
-        return C <= clearanceLevel;
+        if (C <= clearanceLevel)
+        {
+            System.out.println("Pilots can handled this request.");
+            return true;
+        }
+        else
+        {
+            if(next != null) {
+               return next.Check(C);
+            }
+            else {
+                System.out.println("No one to handle this request.");
+                return false;
+            }
+        }
     }
     
     
@@ -47,6 +62,7 @@ public class PilotHandler extends Chainable
      * @param clearance
      * @return 
      */
+    
     @Override
     public Chainable setNext(Chainable next, int clearance) 
     {
@@ -54,6 +70,7 @@ public class PilotHandler extends Chainable
         {
             return defaultNext;
         }
+        this.next = next;
         return next;
     }
 }

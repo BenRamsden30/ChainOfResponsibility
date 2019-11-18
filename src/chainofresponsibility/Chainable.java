@@ -12,17 +12,14 @@ package chainofresponsibility;
 public class Chainable 
 {
     private Chainable next;
-    private final int clearance;
+    private int clearance = 0;
     /**
      * Chainable constructor to act as super class. 
-     * @param C
      */
-    public Chainable(int C)
+    public Chainable()
     {
-        clearance = C;
+        
     }
-    
-    
     
     /**
      * Sets next in chain which will be overwritten by the handlers.
@@ -32,7 +29,7 @@ public class Chainable
      */
     public Chainable setNext(Chainable next,int clearance)
     {
-        return new Chainable(clearance);
+        return new Chainable();
     }
     
     /**
@@ -42,6 +39,21 @@ public class Chainable
      */
     public boolean Check(int C)
     {
-        return C>0;
+        if (C < clearance)
+        {
+            System.out.println("I can handled this request.");
+            return true;
+        }
+        else
+        {
+            if(next != null) {
+               return next.Check(C);
+            }
+            else {
+                System.out.println("No one to handle this request.");
+                return false;
+            }
+        }
     }
 }
+

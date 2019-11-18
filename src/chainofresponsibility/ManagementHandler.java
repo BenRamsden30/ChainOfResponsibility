@@ -12,7 +12,11 @@ package chainofresponsibility;
 public class ManagementHandler extends Chainable
 {
     private final int clearanceLevel = 7;
+    /**
+     * This is set to public for use in testing to ensure it is the correct return value.
+     */
     public final Chainable defaultNext = null;
+    private Chainable next;
     
     /**
      *Management constructor
@@ -20,7 +24,7 @@ public class ManagementHandler extends Chainable
      */
     public ManagementHandler(int clearance) 
     {
-        super(clearance);
+        super();
         int C = clearance;
     }
     
@@ -33,7 +37,21 @@ public class ManagementHandler extends Chainable
     @Override
     public boolean Check(int C)
     {
-        return C <= clearanceLevel;
+        if (C <= clearanceLevel)
+        {
+            System.out.println("Management can handled this request.");
+            return true;
+        }
+        else
+        {
+            if(next != null) {
+               return next.Check(C);
+            }
+            else {
+                System.out.println("No one to handle this request.");
+                return false;
+            }
+        }
     }
     
     
@@ -51,6 +69,7 @@ public class ManagementHandler extends Chainable
         {
             return defaultNext;
         }
+        this.next = next;
         return next;
     }
 }

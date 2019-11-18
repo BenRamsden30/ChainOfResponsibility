@@ -12,14 +12,18 @@ package chainofresponsibility;
 public class BookingStaffHandler extends Chainable
 {
     private final int clearanceLevel = 3;
+    /**
+     * This is set to public for use in testing to ensure it is the correct return value.
+     */
     public final Chainable defaultNext = new FlightAttendantHandler(clearanceLevel);
+    private Chainable next;
     /**
      *Booking staff constructor
      * @param clearance
      */
     public BookingStaffHandler(int clearance) 
     {
-        super(clearance);
+        super();
         int C = clearance;
     }
     
@@ -32,8 +36,21 @@ public class BookingStaffHandler extends Chainable
     @Override
     public boolean Check(int C)
     {
-        System.out.println("Hello");
-        return (C <= clearanceLevel);
+        if (C <= clearanceLevel)
+        {
+            System.out.println("Booking staff can handled this request.");
+            return true;
+        }
+        else
+        {
+            if(next != null) {
+               return next.Check(C);
+            }
+            else {
+                System.out.println("No one to handle this request.");
+                return false;
+            }
+        }
     }
     
     
@@ -50,6 +67,7 @@ public class BookingStaffHandler extends Chainable
         {
             return defaultNext;
         }
+        this.next = next;
         return next;
     }
 }
