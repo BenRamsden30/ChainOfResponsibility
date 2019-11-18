@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author v8036651
  */
-public class CleanerHandlerTest {
+public class ManagementHandlerTest {
     
-    public CleanerHandlerTest() {
+    public ManagementHandlerTest() {
     }
     
     @BeforeClass
@@ -37,13 +37,13 @@ public class CleanerHandlerTest {
     public void tearDown() {
     }
 
- /**
-     * Test of CleanerCheck method, of class CleanerHandler.
+    /**
+     * Test of ManagementCheck method, of class ManagementHandler.
      * Test for when below the required clearance.
      */
     @Test
     public void testCheck() {
-        System.out.println("CleanerCheck");
+        System.out.println("ManagementCheck");
         int C = 0;
         GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = true;
@@ -54,12 +54,12 @@ public class CleanerHandlerTest {
     }
     
     /**
-     * Test of CleanerCheck method, of class CleanerHandler.
+     * Test of ManagementCheck method, of class ManagementHandler.
      * Equal to the required clearance.
      */
     @Test
     public void testCheck2() {
-        System.out.println("CleanerCheck");
+        System.out.println("ManagementCheck");
         int C = 1;
         GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = true;
@@ -70,12 +70,12 @@ public class CleanerHandlerTest {
     }
     
     /**
-     * Test of CleanerCheck method, of class CleanerHandler.
+     * Test of ManagementCheck method, of class ManagementHandler.
      * When the clearance is greater than that which is required.
      */
     @Test
     public void testCheck3() {
-        System.out.println("CleanerCheck");
+        System.out.println("ManagementCheck");
         int C = 10;
         GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = false;
@@ -87,7 +87,7 @@ public class CleanerHandlerTest {
 
     /**
      * Set next in chain when passed null value.
-     * Test of setNext method, of class GeneralStaffHandler.
+     * Test of setNext method, of class ManagementHandler.
      */
     @Test
     public void testSetNext() {
@@ -107,13 +107,13 @@ public class CleanerHandlerTest {
     
     /**
      * Set next in chain when passed a value for next in chain.
-     * Test of setNext method, of class GeneralStaffHandler.
+     * Test of setNext method, of class ManagementHandler.
      */
     @Test
     public void testSetNext2() {
         System.out.println("setNext");
         int clearance = 5;
-        Chainable next = new PilotHandler(clearance);
+        Chainable next = new CleanerHandler(clearance);
         PilotHandler instance = new PilotHandler(clearance);
         Chainable expResult = next;
         Chainable result = instance.setNext(next, clearance);
@@ -121,4 +121,5 @@ public class CleanerHandlerTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
 }

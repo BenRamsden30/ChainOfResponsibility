@@ -12,7 +12,7 @@ package chainofresponsibility;
 public class FlightControlHandler extends Chainable
 {
     private final int clearanceLevel = 6;
-    private final Chainable defaultNext = new ManagementHandler(clearanceLevel);
+    public final Chainable defaultNext = new ManagementHandler(clearanceLevel);
 
     /**
      *Flight control constructor.

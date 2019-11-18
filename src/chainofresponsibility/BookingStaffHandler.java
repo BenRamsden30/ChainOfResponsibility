@@ -12,7 +12,7 @@ package chainofresponsibility;
 public class BookingStaffHandler extends Chainable
 {
     private final int clearanceLevel = 3;
-    private final Chainable defaultNext = new FlightAttendantHandler(clearanceLevel);
+    public final Chainable defaultNext = new FlightAttendantHandler(clearanceLevel);
     /**
      *Booking staff constructor
      * @param clearance

@@ -12,7 +12,10 @@ package chainofresponsibility;
 public class PilotHandler extends Chainable
 {
     private final int clearanceLevel = 5;
-    private final Chainable defaultNext = new FlightControlHandler(clearanceLevel);
+    /**
+     * This is set to public for use in testing to ensure it is the correct return value.
+     */
+    public final Chainable defaultNext = new FlightControlHandler(clearanceLevel);
 
     /**
      *Handler constructor

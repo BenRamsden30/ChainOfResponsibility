@@ -12,7 +12,7 @@ package chainofresponsibility;
 public class FlightAttendantHandler extends Chainable
 {
     private final int clearanceLevel = 4;
-    private final Chainable defaultNext = new PilotHandler(clearanceLevel);
+    public final Chainable defaultNext = new PilotHandler(clearanceLevel);
 
     /**
      *Flight attendant constructor.

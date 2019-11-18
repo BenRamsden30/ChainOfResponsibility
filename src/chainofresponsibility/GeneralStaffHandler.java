@@ -12,7 +12,7 @@ package chainofresponsibility;
 public class GeneralStaffHandler extends Chainable
 {
     private final int clearanceLevel = 1;
-    private final Chainable defaultNext = new CleanerHandler(clearanceLevel);
+    public final Chainable defaultNext = new CleanerHandler(clearanceLevel);
 
     /**
      *General staff constructor.

@@ -42,12 +42,12 @@ public class PilotHandlerTest {
      * Test for when clearance is less than that which is required.
      */
     @Test
-    public void testPilotCheck() {
+    public void testCheck() {
         System.out.println("PilotCheck");
         int C = 0;
         PilotHandler instance = new PilotHandler(C);
-        boolean expResult = false;
-        boolean result = instance.PilotCheck(C);
+        boolean expResult = true;
+        boolean result = instance.Check(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -58,12 +58,12 @@ public class PilotHandlerTest {
      * Test for when the clearance is equal to that which is required.
      */
     @Test
-    public void testPilotCheck2() {
+    public void testCheck2() {
         System.out.println("PilotCheck");
         int C = 5;
         PilotHandler instance = new PilotHandler(C);
         boolean expResult = true;
-        boolean result = instance.PilotCheck(C);
+        boolean result = instance.Check(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -74,15 +74,51 @@ public class PilotHandlerTest {
      * Test when the clearance is larger than required.
      */
     @Test
-    public void testPilotCheck3() {
+    public void testCheck3() {
         System.out.println("PilotCheck");
         int C = 10;
         PilotHandler instance = new PilotHandler(C);
-        boolean expResult = true;
-        boolean result = instance.PilotCheck(C);
+        boolean expResult = false;
+        boolean result = instance.Check(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Set next in chain when passed null value.
+     * Test of setNext method, of class PilotHandler.
+     */
+    @Test
+    public void testSetNext() {
+        System.out.println("setNext");
+        Chainable next = null;
+        int clearance = 5;
+        PilotHandler instance = new PilotHandler(clearance);
+        Chainable expResult = instance.defaultNext;
+        Chainable result = instance.setNext(next, clearance);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
+    
+    
+    
+    /**
+     * Set next in chain when passed a value for next in chain.
+     * Test of setNext method, of class PilotHandler.
+     */
+    @Test
+    public void testSetNext2() {
+        System.out.println("setNext");
+        int clearance = 5;
+        Chainable next = new CleanerHandler(clearance);
+        PilotHandler instance = new PilotHandler(clearance);
+        Chainable expResult = next;
+        Chainable result = instance.setNext(next, clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

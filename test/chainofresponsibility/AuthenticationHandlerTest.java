@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author v8036651
  */
-public class AuthenticateTest {
+public class AuthenticationHandlerTest {
     
-    public AuthenticateTest() {
+    public AuthenticationHandlerTest() {
     }
     
     @BeforeClass

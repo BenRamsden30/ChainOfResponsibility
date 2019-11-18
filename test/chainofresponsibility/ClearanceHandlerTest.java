@@ -37,79 +37,88 @@ public class ClearanceHandlerTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of ClearanceCheck method, when on lower boundary.
+  /**
+     * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * Test for when below the required clearance.
      */
     @Test
-    public void testClearanceCheck() {
+    public void testCheck() {
         System.out.println("ClearanceCheck");
-        int clearance = 0;
-        ClearanceHandler instance = new ClearanceHandler();
-        boolean expResult = false;
-        boolean result = instance.ClearanceCheck(clearance);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-    /**
-     * Test of ClearanceCheck method, when on upper boundary.
-     */
-    @Test
-    public void testClearanceCheck2() {
-        System.out.println("ClearanceCheck");
-        int clearance = 8;
-        ClearanceHandler instance = new ClearanceHandler();
-        boolean expResult = false;
-        boolean result = instance.ClearanceCheck(clearance);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-    /**
-     * Test of ClearanceCheck method, when in boundaries.
-     */
-    @Test
-    public void testClearanceCheck3() {
-        System.out.println("ClearanceCheck");
-        int clearance = 4;
-        ClearanceHandler instance = new ClearanceHandler();
+        int C = 0;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = true;
-        boolean result = instance.ClearanceCheck(clearance);
+        boolean result = instance.Check(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
     /**
-     * Test of ClearanceCheck method, when below lower boundary.
+     * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * Equal to the required clearance.
      */
     @Test
-    public void testClearanceCheck4() {
+    public void testCheck2() {
         System.out.println("ClearanceCheck");
-        int clearance = -1;
-        ClearanceHandler instance = new ClearanceHandler();
-        boolean expResult = false;
-        boolean result = instance.ClearanceCheck(clearance);
+        int C = 1;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
+        boolean expResult = true;
+        boolean result = instance.Check(C);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
     /**
-     * Test of ClearanceCheck method, when above upper boundary.
+     * Test of GeneralStaffCheck method, of class GeneralStaffHandler.
+     * When the clearance is greater than that which is required.
      */
     @Test
-    public void testClearanceCheck5() {
+    public void testCheck3() {
         System.out.println("ClearanceCheck");
-        int clearance = 10;
-        ClearanceHandler instance = new ClearanceHandler();
+        int C = 10;
+        GeneralStaffHandler instance = new GeneralStaffHandler(C);
         boolean expResult = false;
-        boolean result = instance.ClearanceCheck(clearance);
+        boolean result = instance.Check(C);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Set next in chain when passed null value.
+     * Test of setNext method, of class GeneralStaffHandler.
+     */
+    @Test
+    public void testSetNext() {
+        System.out.println("setNext");
+        Chainable next = null;
+        int clearance = 5;
+        PilotHandler instance = new PilotHandler(clearance);
+        Chainable expResult = instance.defaultNext;
+        Chainable result = instance.setNext(next, clearance);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
+    
+    
+    
+    /**
+     * Set next in chain when passed a value for next in chain.
+     * Test of setNext method, of class GeneralStaffHandler.
+     */
+    @Test
+    public void testSetNext2() {
+        System.out.println("setNext");
+        int clearance = 5;
+        Chainable next = new PilotHandler(clearance);
+        PilotHandler instance = new PilotHandler(clearance);
+        Chainable expResult = next;
+        Chainable result = instance.setNext(next, clearance);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }
