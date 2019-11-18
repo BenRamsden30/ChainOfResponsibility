@@ -37,88 +37,50 @@ public class BookingStaffHandlerTest {
     public void tearDown() {
     }
 
- /**
-     * Test of BookingStaffCheck method, of class BookingStaffHandler.
-     * Test for when below the required clearance.
-     */
-    @Test
-    public void testCheck() {
-        System.out.println("BookingStaffCheck");
-        int C = 0;
-        GeneralStaffHandler instance = new GeneralStaffHandler(C);
-        boolean expResult = true;
-        boolean result = instance.Check(C);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
     /**
-     * Test of BookingStaffCheck method, of class BookingStaffHandler.
-     * Equal to the required clearance.
+     * Test of toString method, of class BookingStaffHandler.
      */
     @Test
-    public void testCheck2() {
-        System.out.println("BookingStaffCheck");
-        int C = 1;
-        GeneralStaffHandler instance = new GeneralStaffHandler(C);
-        boolean expResult = true;
-        boolean result = instance.Check(C);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-    /**
-     * Test of BookingStaffCheck method, of class BookingStaffHandler.
-     * When the clearance is greater than that which is required.
-     */
-    @Test
-    public void testCheck3() {
-        System.out.println("GeneralStaffCheck");
-        int C = 10;
-        GeneralStaffHandler instance = new GeneralStaffHandler(C);
-        boolean expResult = false;
-        boolean result = instance.Check(C);
+    public void testToString() {
+        System.out.println("toString");
+        BookingStaffHandler instance = new BookingStaffHandler();
+        String expResult = "BookingStaffHandler";
+        String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
     /**
-     * Set next in chain when passed null value.
-     * Test of setNext method, of class GeneralStaffHandler.
+     * When request is the same level or lower.
+     * Test of handleRequest method, of class BookingStaffHandler.
      */
     @Test
-    public void testSetNext() {
-        System.out.println("setNext");
-        Chainable next = null;
-        int clearance = 5;
-        PilotHandler instance = new PilotHandler(clearance);
-        Chainable expResult = instance.defaultNext;
-        Chainable result = instance.setNext(next, clearance);
+    public void testHandleRequest() {
+        System.out.println("handleRequest");
+        Request request = new Request(3, "Flights","The fliught time is 14:00 and the date is 18/11/2019");
+        BookingStaffHandler instance = new BookingStaffHandler();
+        boolean expResult = true;
+        boolean result = instance.handleRequest(request);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
-    
-    
-    
-    /**
-     * Set next in chain when passed a value for next in chain.
-     * Test of setNext method, of class GeneralStaffHandler.
+     /**
+      * When request requires higher clearance.
+     * Test of handleRequest method, of class BookingStaffHandler.
      */
     @Test
-    public void testSetNext2() {
-        System.out.println("setNext");
-        int clearance = 5;
-        Chainable next = new PilotHandler(clearance);
-        PilotHandler instance = new PilotHandler(clearance);
-        Chainable expResult = next;
-        Chainable result = instance.setNext(next, clearance);
+    public void testHandleRequest2() {
+        System.out.println("handleRequest");
+        Request request = new Request(5, "Flights","The fliught time is 14:00 and the date is 18/11/2019");
+        BookingStaffHandler instance = new BookingStaffHandler();
+        boolean expResult = false;
+        boolean result = instance.handleRequest(request);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
 }

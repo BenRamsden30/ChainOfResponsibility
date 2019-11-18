@@ -38,87 +38,49 @@ public class PilotHandlerTest {
     }
 
     /**
-     * Test of PilotCheck method, of class PilotHandler.
-     * Test for when clearance is less than that which is required.
+     * Test of toString method, of class PilotHandler.
      */
     @Test
-    public void testCheck() {
-        System.out.println("PilotCheck");
-        int C = 0;
-        PilotHandler instance = new PilotHandler(C);
-        boolean expResult = true;
-        boolean result = instance.Check(C);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-    /**
-     * Test of PilotCheck method, of class PilotHandler.
-     * Test for when the clearance is equal to that which is required.
-     */
-    @Test
-    public void testCheck2() {
-        System.out.println("PilotCheck");
-        int C = 5;
-        PilotHandler instance = new PilotHandler(C);
-        boolean expResult = true;
-        boolean result = instance.Check(C);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-    /**
-     * Test of PilotCheck method, of class PilotHandler.
-     * Test when the clearance is larger than required.
-     */
-    @Test
-    public void testCheck3() {
-        System.out.println("PilotCheck");
-        int C = 10;
-        PilotHandler instance = new PilotHandler(C);
-        boolean expResult = false;
-        boolean result = instance.Check(C);
+    public void testToString() {
+        System.out.println("toString");
+        PilotHandler instance = new PilotHandler();
+        String expResult = "PilotHandler";
+        String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
     /**
-     * Set next in chain when passed null value.
-     * Test of setNext method, of class PilotHandler.
+     * When request is the same level or lower.
+     * Test of handleRequest method, of class BookingStaffHandler.
      */
     @Test
-    public void testSetNext() {
-        System.out.println("setNext");
-        Chainable next = null;
-        int clearance = 5;
-        PilotHandler instance = new PilotHandler(clearance);
-        Chainable expResult = instance.defaultNext;
-        Chainable result = instance.setNext(next, clearance);
+    public void testHandleRequest() {
+        System.out.println("handleRequest");
+        Request request = new Request(5, "Flights","The fliught time is 14:00 and the date is 18/11/2019");
+        PilotHandler instance = new PilotHandler();
+        boolean expResult = true;
+        boolean result = instance.handleRequest(request);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
-    
-    
-    
-    /**
-     * Set next in chain when passed a value for next in chain.
-     * Test of setNext method, of class PilotHandler.
+     /**
+      * When request requires higher clearance.
+     * Test of handleRequest method, of class BookingStaffHandler.
      */
     @Test
-    public void testSetNext2() {
-        System.out.println("setNext");
-        int clearance = 5;
-        Chainable next = new CleanerHandler(clearance);
-        PilotHandler instance = new PilotHandler(clearance);
-        Chainable expResult = next;
-        Chainable result = instance.setNext(next, clearance);
+    public void testHandleRequest2() {
+        System.out.println("handleRequest");
+        Request request = new Request(8, "Flights","The fliught time is 14:00 and the date is 18/11/2019");
+        PilotHandler instance = new PilotHandler();
+        boolean expResult = false;
+        boolean result = instance.handleRequest(request);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
 }
