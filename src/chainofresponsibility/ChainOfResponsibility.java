@@ -5,6 +5,8 @@
  */
 package chainofresponsibility;
 
+import java.util.Scanner;
+
 /**
  *
  * @author v8036651
@@ -15,7 +17,52 @@ public class ChainOfResponsibility {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AuthenticationHandler test = new AuthenticationHandler();
+
+        int clearence = 1;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What is your clearance level?");
+        clearence = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("What is your request?");
+        String request = scanner.nextLine();
+
+        /**
+         * Sets up a general staff handler to be called later.
+         */
+        Chainable G = new GeneralStaffHandler();
+        /**
+         * Sets up a cleaner handler to be called later.
+         */
+        Chainable C = new CleanerHandler();
+        /**
+         * Sets up a booking staff handler to be called later.
+         */
+        Chainable B = new BookingStaffHandler();
+        /**
+         * Sets up a flight attendant handler to be called later.
+         */
+        Chainable FA = new FlightAttendantHandler();
+        /**
+         * Sets up a pilot handler to be called later.
+         */
+        Chainable P = new PilotHandler();
+        /**
+         * Sets up a flight control handler to be called later.
+         */
+        Chainable FC = new FlightControlHandler();
+        /**
+         * Sets up a management handler to be called later.
+         */
+        Chainable M = new ManagementHandler();
+        
+        G.setNext(C);
+        C.setNext(B);
+        B.setNext(FA);
+        FA.setNext(P);
+        P.setNext(FC);
+        FC.setNext(M);
+        
+        G.handleRequest(new Request(clearence, request,"The fliught time is 14:00 and the date is 18/11/2019"));
     }
     
 }

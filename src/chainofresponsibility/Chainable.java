@@ -11,49 +11,61 @@ package chainofresponsibility;
  */
 public class Chainable 
 {
-    private Chainable next;
-    private int clearance = 0;
+
+    /**
+     *Variables to be used by parent and sub classes.
+     */
+    protected  Chainable next;
+    private int clearanceLevel;
+    
     /**
      * Chainable constructor to act as super class. 
+     * @param cl
      */
-    public Chainable()
+    public Chainable(int cl)
     {
-        
+        clearanceLevel = cl;
     }
     
     /**
      * Sets next in chain which will be overwritten by the handlers.
-     * @param next
-     * @param clearance
-     * @return 
+     * @param next 
      */
-    public Chainable setNext(Chainable next,int clearance)
+    public void setNext(Chainable next)
     {
-        return new Chainable();
+        this.next = next;
     }
     
     /**
      * Sets the check method for the super class, this is overwritten by the handlers based on which is called.
-     * @param C
+     * @param request
      * @return 
      */
-    public boolean Check(int C)
+    public boolean handleRequest(Request request)
     {
-        if (C < clearance)
+        if (request.getClearence() <= clearanceLevel)
         {
-            System.out.println("I can handled this request.");
+            System.out.println(this.toString() + " can handled the request to " + request.getDescription());
             return true;
         }
         else
         {
             if(next != null) {
-               return next.Check(C);
+               return next.handleRequest(request);
             }
             else {
                 System.out.println("No one to handle this request.");
                 return false;
             }
         }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public int getClearanceLevel() {
+        return clearanceLevel;
     }
 }
 

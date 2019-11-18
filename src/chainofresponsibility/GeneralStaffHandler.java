@@ -11,65 +11,17 @@ package chainofresponsibility;
  */
 public class GeneralStaffHandler extends Chainable
 {
-    private final int clearanceLevel = 1;
-    /**
-     * This is set to public for use in testing to ensure it is the correct return value.
-     */
-    public final Chainable defaultNext = new CleanerHandler(clearanceLevel);
-    private Chainable next;
-
     /**
      *General staff constructor.
-     * @param clearance
      */
-    public GeneralStaffHandler(int clearance) 
+    public GeneralStaffHandler() 
     {
-        super();
-        int C = clearance;
+        super(1);
     }
     
-    /**
-     **This checks if the user has the clearance for something requiring the
-     * clearance of a General staff member.
-     * @param C
-     * @return
-     */
     @Override
-    public boolean Check(int C)
+    public String toString()
     {
-        if (C <= clearanceLevel)
-        {
-            System.out.println("General staff can handled this request.");
-            return true;
-        }
-        else
-        {
-            if(next != null) {
-               return next.Check(C);
-            }
-            else {
-                System.out.println("No one to handle this request.");
-                return false;
-            }
-        }
-    }
-    
-    
-    
-    /**
-     * Sets next in chain as the passed Chainable object or defaults to the cleaner handler.
-     * @param next
-     * @param clearance
-     * @return 
-     */
-    @Override
-    public Chainable setNext(Chainable next, int clearance) 
-    {
-        if(next == null)
-        {
-            return defaultNext;
-        }
-        this.next = next;
-        return next;
+        return "GeneralStaffHandler";
     }
 }

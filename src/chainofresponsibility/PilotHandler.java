@@ -11,66 +11,41 @@ package chainofresponsibility;
  */
 public class PilotHandler extends Chainable
 {
-    private final int clearanceLevel = 5;
-    /**
-     * This is set to public for use in testing to ensure it is the correct return value.
-     */
-    public final Chainable defaultNext = new FlightControlHandler(clearanceLevel);
-    private Chainable next;
-
     /**
      *Handler constructor
-     * @param clearance
      */
-    public PilotHandler(int clearance) 
+    public PilotHandler() 
     {
-        super();
-        int C = clearance;
+        super(5);
     }
     
-    /**
-     *This checks if the user has the clearance for something requiring the
-     * clearance of a pilot.
-     * @param C
-     * @return
-     */
     @Override
-    public boolean Check(int C)
+    public String toString()
     {
-        if (C <= clearanceLevel)
+        return "PilotHandler";
+    }
+    
+    @Override
+    public boolean handleRequest (Request request)
+    {
+        if (request.getClearence() <= this.getClearanceLevel())
         {
-            System.out.println("Pilots can handled this request.");
+            System.out.println(this.toString() + " can handled the request to " + request.getDescription());
+            System.out.println("Due to the request you will gain additional information about the flight:");
+            System.out.println(request.getDetails());
             return true;
         }
         else
         {
-            if(next != null) {
-               return next.Check(C);
+            if(next != null) 
+            {
+               return next.handleRequest(request);
             }
-            else {
+            else 
+            {
                 System.out.println("No one to handle this request.");
                 return false;
             }
         }
-    }
-    
-    
-    
-    /**
-     * Sets default to flight control handler for if null is passed otherwise sets next in chain to next.
-     * @param next
-     * @param clearance
-     * @return 
-     */
-    
-    @Override
-    public Chainable setNext(Chainable next, int clearance) 
-    {
-        if(next == null)
-        {
-            return defaultNext;
-        }
-        this.next = next;
-        return next;
     }
 }
