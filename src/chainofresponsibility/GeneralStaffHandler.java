@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class GeneralStaffHandler extends Chainable
+public class GeneralStaffHandler extends ChainableHandler
 {
     /**
      *General staff constructor.

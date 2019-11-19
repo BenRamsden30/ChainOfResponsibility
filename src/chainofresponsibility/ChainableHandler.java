@@ -9,20 +9,20 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class Chainable 
+public class ChainableHandler 
 {
 
     /**
      *Variables to be used by parent and sub classes.
      */
-    protected  Chainable next;
+    protected  ChainableHandler next;
     private int clearanceLevel;
     
     /**
-     * Chainable constructor to act as super class. 
+     * ChainableHandler constructor to act as super class. 
      * @param cl
      */
-    public Chainable(int cl)
+    public ChainableHandler(int cl)
     {
         clearanceLevel = cl;
     }
@@ -31,7 +31,7 @@ public class Chainable
      * Sets next in chain which will be overwritten by the handlers.
      * @param next 
      */
-    public void setNext(Chainable next)
+    public void setNext(ChainableHandler next)
     {
         this.next = next;
     }

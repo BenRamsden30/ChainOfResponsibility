@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class FlightControlHandler extends Chainable
+public class FlightControlHandler extends ChainableHandler
 {
     /**
      *Flight control constructor.

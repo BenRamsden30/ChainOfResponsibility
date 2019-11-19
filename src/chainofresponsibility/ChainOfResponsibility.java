@@ -29,31 +29,31 @@ public class ChainOfResponsibility {
         /**
          * Sets up a general staff handler to be called later.
          */
-        Chainable G = new GeneralStaffHandler();
+        ChainableHandler G = new GeneralStaffHandler();
         /**
          * Sets up a cleaner handler to be called later.
          */
-        Chainable C = new CleanerHandler();
+        ChainableHandler C = new CleanerHandler();
         /**
          * Sets up a booking staff handler to be called later.
          */
-        Chainable B = new BookingStaffHandler();
+        ChainableHandler B = new BookingStaffHandler();
         /**
          * Sets up a flight attendant handler to be called later.
          */
-        Chainable FA = new FlightAttendantHandler();
+        ChainableHandler FA = new FlightAttendantHandler();
         /**
          * Sets up a pilot handler to be called later.
          */
-        Chainable P = new PilotHandler();
+        ChainableHandler P = new PilotHandler();
         /**
          * Sets up a flight control handler to be called later.
          */
-        Chainable FC = new FlightControlHandler();
+        ChainableHandler FC = new FlightControlHandler();
         /**
          * Sets up a management handler to be called later.
          */
-        Chainable M = new ManagementHandler();
+        ChainableHandler M = new ManagementHandler();
         
         G.setNext(C);
         C.setNext(B);

@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class BookingStaffHandler extends Chainable
+public class BookingStaffHandler extends ChainableHandler
 {
     /**
      * This is set to public for use in testing to ensure it is the correct return value.

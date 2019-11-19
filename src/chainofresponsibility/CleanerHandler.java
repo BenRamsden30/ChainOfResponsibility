@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class CleanerHandler extends Chainable
+public class CleanerHandler extends ChainableHandler
 {
     /**
      *Cleaner constructor.

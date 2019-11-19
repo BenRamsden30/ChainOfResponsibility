@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class PilotHandler extends Chainable
+public class PilotHandler extends ChainableHandler
 {
     /**
      *Handler constructor

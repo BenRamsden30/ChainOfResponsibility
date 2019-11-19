@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class ManagementHandler extends Chainable
+public class ManagementHandler extends ChainableHandler
 {   
     /**
      *Management constructor

@@ -9,7 +9,7 @@ package chainofresponsibility;
  *
  * @author v8036651
  */
-public class FlightAttendantHandler extends Chainable
+public class FlightAttendantHandler extends ChainableHandler
 {
     /**
      *Flight attendant constructor.

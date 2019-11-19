@@ -39,26 +39,26 @@ public class ChainableTest {
     }
 
     /**
-     * Test of setNext method, of class Chainable.
+     * Test of setNext method, of class ChainableHandler.
      */
     @Test
     public void testSetNext() {
         System.out.println("setNext");
-        Chainable next = new BookingStaffHandler();
-        Chainable instance = new GeneralStaffHandler();
+        ChainableHandler next = new BookingStaffHandler();
+        ChainableHandler instance = new GeneralStaffHandler();
         instance.setNext(next);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
     /**
-     * Test of handleRequest method, of class Chainable.
+     * Test of handleRequest method, of class ChainableHandler.
      */
     @Test
     public void testHandleRequest() {
         System.out.println("handleRequest");
         Request request = new Request(1, "Test","The fliught time is 14:00 and the date is 18/11/2019");
-        Chainable instance = new Chainable(1);
+        ChainableHandler instance = new ChainableHandler(1);
         boolean expResult = true;
         boolean result = instance.handleRequest(request);
         assertEquals(expResult, result);
@@ -67,12 +67,12 @@ public class ChainableTest {
     }
 
     /**
-     * Test of getClearanceLevel method, of class Chainable.
+     * Test of getClearanceLevel method, of class ChainableHandler.
      */
     @Test
     public void testGetClearanceLevel() {
         System.out.println("getClearanceLevel");
-        Chainable instance = new Chainable(1);
+        ChainableHandler instance = new ChainableHandler(1);
         int expResult = 1;
         int result = instance.getClearanceLevel();
         assertEquals(expResult, result);
